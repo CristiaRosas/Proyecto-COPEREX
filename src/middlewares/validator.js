@@ -1,15 +1,13 @@
 import { body } from 'express-validator';
 import { validarCampos } from './validar-campos.js';
-import { existeEmail } from '../helpers/db.validator.js';
 
 
 export const registerValidator = [
     body('name', 'The name is required').not().isEmpty(),
-    body('surname', 'The surname is rquired').not().isEmpty(),
-    body('email', 'You must enter a valid email').isEmail(),
-    body('email').custom(existeEmail),
-
-    body('password', 'password must be at least o characters').isLength({ min: 6}),
+    body('impacto', 'The impacto is required').isIn(['bajo', 'medio', 'alto']),
+    body('nivel', 'The nivel is required').isIn(['local', 'mundial']),
+    body('año', 'The year is required').isNumeric(), // Validar año como número
+    body('categoria', 'The categoria is required').not().isEmpty().isLength({ min: 8 }), // Validar longitud mínima
     validarCampos,
 ];
 

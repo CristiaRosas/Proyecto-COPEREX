@@ -1,0 +1,32 @@
+[{
+  "_id": {
+    "$oid": "67c4b485bf0255178d9c8599"
+  },
+  "name": "Banco Industrial",
+  "impacto": "alto",
+  "nivel": "local",
+  "año": 2010,
+  "categoria": "Monetarias",
+  "createdAt": {
+    "$date": "2025-03-02T19:41:57.978Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-02T19:41:57.978Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c4c426e3b73117997aad0f"
+  },
+  "name": "Dobladas san carlos",
+  "impacto": "medio",
+  "nivel": "local",
+  "año": 2006,
+  "categoria": "Alimentos",
+  "createdAt": {
+    "$date": "2025-03-02T20:48:38.314Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-02T20:48:38.314Z"
+  }
+}]

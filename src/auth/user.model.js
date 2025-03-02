@@ -27,7 +27,8 @@ const UserSchema = Schema({
     },
     role: {
         type: String,
-        default: process.env.ROLE
+        enum: ['ADMIN_ROLE'],
+        default: 'ADMIN_ROLE'
     }
 },
     {

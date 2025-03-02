@@ -1,6 +1,6 @@
 import User from './user.model.js';
 import { hash, verify } from 'argon2';
-import { generarJWT } from '../helpers/generate-jwt.js';
+import { generarJWT  } from '../helpers/generate-jwt.js';
 
 export const  login = async(req, res) => {
     try {        
@@ -10,6 +10,8 @@ export const  login = async(req, res) => {
             $or: [{email: loginuser}, 
                 {username: loginuser}]
         }) 
+        console.log(user);
+        
 
         if(!user){
             return res.status(400).json({
@@ -24,14 +26,14 @@ export const  login = async(req, res) => {
             })
         }
 
-        const token = await generarJWT(user.id);
+        const token = await generarJWT(user._id);
+        console.log(token);
+        
 
         res.status(200).json({
-            msg: 'Inicio de sesión exitoso!',
+            msg: `Inicio de sesión exitoso!, Bienvenido ${user.name}`,
             userDetails: {
-                username: user.username,
                 token: token,
-                profilePicture: user.profilePicture
             }
         })
 
