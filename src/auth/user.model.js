@@ -25,10 +25,18 @@ const UserSchema = Schema({
         required: [true, 'Password required'],
         minLength: 8
     },
+    status: {
+        type: Boolean,
+        default: true
+    },
     role: {
         type: String,
         enum: ['ADMIN_ROLE'],
-        default: 'ADMIN_ROLE'
+    },
+    relacion: {
+        type: Schema.Types.ObjectId,
+        ref: 'Compania',
+        required: false
     }
 },
     {

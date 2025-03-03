@@ -59,18 +59,18 @@
 			"name": "CompaniasCOPEREX",
 			"item": [
 				{
-					"name": "mostrarEmpresas",
+					"name": "OrdenarEmpresas A-Z",
 					"request": {
 						"method": "GET",
 						"header": [
 							{
-								"key": "Authorization",
-								"value": "{{token}}",
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2MTIzNzIwZDU4NGY1ODgzNzI4MTQiLCJpYXQiOjE3NDEwNDAwNTMsImV4cCI6MTc0MTA0MzY1M30.EQnQ1I2kG-V2nioEOGyBgv36ICvQpi-p3dUnfILm-08",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3006/COPEREX/v1/compania/companias",
+							"raw": "http://localhost:3006/COPEREX/v1/compania/getCompanias?ordenar=A-Z",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -80,7 +80,13 @@
 								"COPEREX",
 								"v1",
 								"compania",
-								"companias"
+								"getCompanias"
+							],
+							"query": [
+								{
+									"key": "ordenar",
+									"value": "A-Z"
+								}
 							]
 						}
 					},
@@ -90,10 +96,16 @@
 					"name": "AgregarEmpresas",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2MGVmNjAzZmFlYjQ3OGQxOGNlYmEiLCJpYXQiOjE3NDEwMzMzMjAsImV4cCI6MTc0MTAzNjkyMH0.z-O4ph0Kc68KJwJgrbVeM0swHApCFkpVOci4Lt5iQgQ",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"Dobladas san carlos\",\r\n    \"impacto\": \"medio\",\r\n    \"nivel\": \"local\",\r\n    \"año\": \"2006\",\r\n    \"categoria\": \"Alimentos\"\r\n}",
+							"raw": "{\r\n    \"name\" : \"Helados sarita\",\r\n    \"impacto\": \"medio\",\r\n    \"año\": \"2009\",\r\n    \"categoria\": \"Alimentos\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -114,6 +126,64 @@
 								"register"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "mostrarPorId",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "OrdenarEmpreza Z-A",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2MTIzNzIwZDU4NGY1ODgzNzI4MTQiLCJpYXQiOjE3NDEwNDAwNTMsImV4cCI6MTc0MTA0MzY1M30.EQnQ1I2kG-V2nioEOGyBgv36ICvQpi-p3dUnfILm-08",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3006/COPEREX/v1/compania/getCompanias?ordenar=Z-A",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"COPEREX",
+								"v1",
+								"compania",
+								"getCompanias"
+							],
+							"query": [
+								{
+									"key": "ordenar",
+									"value": "Z-A"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrdenarAñosMAyor",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "OrdenarAñosMenor",
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}

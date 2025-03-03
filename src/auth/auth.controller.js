@@ -1,4 +1,5 @@
 import User from './user.model.js';
+import Compania from '../companias/compania.model.js';
 import { hash, verify } from 'argon2';
 import { generarJWT  } from '../helpers/generate-jwt.js';
 
@@ -43,6 +44,39 @@ export const  login = async(req, res) => {
             message: "Error del servidor",
             error: e.message
         })
+    }
+}
+
+export const registerClient = async (req, res) => {
+    try {
+        const data = req.body;
+        const company = await Compania.findOne({name: data.name})
+
+        const user = await User.create({
+            name: data.name,
+            surname: data.surname,
+            username: data.username,
+            email: data.email,
+            relacion: company._id
+        })
+
+        return res.status(201).json({
+            message: 'User registered successfully',
+            userDetails: {
+                user: user.email,
+                company: company.name
+            }
+        });
+
+    } catch (error) {
+        
+        console.log(error);
+
+        return res.status(500).json({
+            message: "User registration failed",
+            error: err.message
+        })
+
     }
 }
 

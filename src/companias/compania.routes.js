@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { validarJWT} from "../middlewares/validar-jwt.js";
-import { esAdmin } from "../helpers/generate-jwt.js";
-import { register, getCompanias } from './compania.controller.js'
+import { tieneRole } from "../middlewares/validar-roles.js";
+import { register, getCompanias, viewCompanyById} from './compania.controller.js';
 import { registerValidator } from "../middlewares/validator.js";
 
 const router = Router();
@@ -13,10 +13,18 @@ router.post(
 );
 
 router.get(
-    '/companias',
+    '/getCompanias',
     validarJWT,
-    esAdmin,
+    tieneRole ("ADMIN_ROLE"),
     getCompanias // Añadir la nueva ruta
 );
+
+router.get(
+    '/viewCompanyById/:id',
+    validarJWT,
+    tieneRole ("ADMIN_ROLE"),
+    viewCompanyById // Añadir la nueva ruta
+);
+
 
 export default router;

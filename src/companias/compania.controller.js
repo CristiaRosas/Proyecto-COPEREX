@@ -31,7 +31,38 @@ export const register = async (req, res) => {
 
 export const getCompanias = async (req, res) => {
     try {
-        const companias = await Compania.find(); // Obtener todas las compañías
+        // Obtener los parámetros de consulta (query params)
+        const { categoria, anios, ordenar, ordenarPor } = req.query; // Definir parámetros de consulta
+
+        // Construir el filtro dinámicamente
+        let filter = { status: true }; // Filtrar solo las empresas activas
+
+        if (categoria) {
+            filter.categoria = categoria; // Filtrar por categoría
+        }
+
+        if (anios) {
+            // Filtrar por años de trayectoria, se asume que 'anios' es el campo en la base de datos
+            filter.anios = { $gte: anios }; // Empresas con más de 'anios' años de trayectoria
+        }
+
+        // Construir el ordenamiento dinámicamente
+        let sort = {};
+        if (ordenar) {
+            if (ordenar === "A-Z") {
+                sort.name = 1; // Ordenar de A-Z
+            } else if (ordenar === "Z-A") {
+                sort.name = -1; // Ordenar de Z-A
+            } else if (ordenar === "mayor") {
+                sort.createdAt = ordenarPor === "asc" ? 1 : -1; // Ordenar por fecha de creación
+            } else if (ordenar === "menor") {
+                sort.createdAt = ordenarPor === "desc" ? 1 : -1; // Ordenar por fecha de creación
+            } 
+            
+        }
+
+        // Obtener las compañías con el filtro y ordenamiento
+        const companias = await Compania.find(filter).sort(sort);
 
         return res.status(200).json({
             success: true,
@@ -47,26 +78,30 @@ export const getCompanias = async (req, res) => {
     }
 };
 
-/* export const viewCompanyById = async (req, res) => {
-    const { id } = req.params;
+export const viewCompanyById = async (req, res) => {
     try {
-        const company = await Client.findById(id)
-        if (!company) {
-            return res.status(404).send({
+        
+        const { id } = req.params;
+
+        const compania = await Compania.findById(id);
+
+        if(!compania){
+            return res.status(404).json({
                 success: false,
-                message: 'Company not found',
-            });
+                msg: 'Usuario not found'
+            })
         }
-        return res.status(200).send({
+
+        res.status(200).json({
             success: true,
-            message: 'Company', company
+            compania
         })
+
     } catch (error) {
-        console.error(error);
-        return res.status(500).send({
+        res.status(500).json({
             success: false,
-            message: 'Error when listing',
-            error
-        });
+            msg: 'Error al obtener Usuario',
+            error: error.message
+        })
     }
-} */
+}

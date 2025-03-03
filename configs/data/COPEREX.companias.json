@@ -1,32 +1,64 @@
 [{
   "_id": {
-    "$oid": "67c4b485bf0255178d9c8599"
+    "$oid": "67c61406c90108c8a49d2925"
   },
-  "name": "Banco Industrial",
-  "impacto": "alto",
-  "nivel": "local",
-  "año": 2010,
-  "categoria": "Monetarias",
+  "name": "Dobladas san carlos",
+  "impacto": "medio",
+  "año": 10,
+  "categoria": "Alimentos",
+  "status": true,
   "createdAt": {
-    "$date": "2025-03-02T19:41:57.978Z"
+    "$date": "2025-03-03T20:41:42.402Z"
   },
   "updatedAt": {
-    "$date": "2025-03-02T19:41:57.978Z"
+    "$date": "2025-03-03T20:41:42.402Z"
   }
 },
 {
   "_id": {
-    "$oid": "67c4c426e3b73117997aad0f"
+    "$oid": "67c62e6cb18abb0ae438ca5f"
   },
-  "name": "Dobladas san carlos",
+  "name": "Banco Industrial",
   "impacto": "medio",
-  "nivel": "local",
-  "año": 2006,
-  "categoria": "Alimentos",
+  "año": 15,
+  "categoria": "Bancarios",
+  "status": true,
   "createdAt": {
-    "$date": "2025-03-02T20:48:38.314Z"
+    "$date": "2025-03-03T22:34:20.678Z"
   },
   "updatedAt": {
-    "$date": "2025-03-02T20:48:38.314Z"
+    "$date": "2025-03-03T22:34:20.678Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c62ebcb18abb0ae438ca62"
+  },
+  "name": "Intelaf",
+  "impacto": "medio",
+  "año": 9,
+  "categoria": "Cosas de tecnologia",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-03T22:35:40.634Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T22:35:40.634Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c62f3db18abb0ae438ca65"
+  },
+  "name": "Helados sarita",
+  "impacto": "medio",
+  "año": 25,
+  "categoria": "Alimentos",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-03T22:37:49.783Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T22:37:49.783Z"
   }
 }]
