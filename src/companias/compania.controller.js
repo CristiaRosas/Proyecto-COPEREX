@@ -1,4 +1,9 @@
 import Compania from './compania.model.js';
+import XLSX from 'xlsx';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import path from 'path';
 
 export const register = async (req, res) => {
     try {
@@ -128,6 +133,61 @@ export const updateCompany = async (req, res) => {
         return res.status(500).json({
             success: false,
             message: "Error interno del servidor al actualizar la empresa.",
+            error: error.message,
+        });
+    }
+};
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export const generateCompanyReport = async (req, res) => {
+    try {
+        const companias = await Compania.find();
+
+        if (companias.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "No hay empresas registradas para generar el reporte.",
+            });
+        }
+
+        const reportData = companias.map(compania => ({
+            'ID': compania._id,
+            'Nombre': compania.name,
+            'Categoria': compania.categoria || 'No definida',
+            'Año de registro': compania.año || 'No disponible',
+            'Estado': compania.status ? 'Activo' : 'Inactivo',
+        }));
+
+        const ws = XLSX.utils.json_to_sheet(reportData);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Reporte de Empresas");
+
+        const fileName = 'reporte_empresas.xlsx';
+
+        // Aquí usamos __dirname con import.meta.url
+        const folderPath = path.join(__dirname, '..', 'excel-Report');
+        const filePath = path.join(folderPath, fileName);
+
+        // Verifica si la carpeta existe, y si no, la crea
+        if (!fs.existsSync(folderPath)) {
+            fs.mkdirSync(folderPath, { recursive: true });
+        }
+
+        // Guarda el archivo Excel en la ruta indicada
+        XLSX.writeFile(wb, filePath);
+
+        return res.status(200).json({
+            success: true,
+            message: `Reporte generado con éxito. El archivo se ha guardado en ${filePath}`,
+        });
+
+    } catch (error) {
+        console.error("Error al generar el reporte:", error);
+        return res.status(500).json({
+            success: false,
+            message: "Hubo un error al generar el reporte.",
             error: error.message,
         });
     }

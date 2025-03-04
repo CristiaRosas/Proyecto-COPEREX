@@ -356,6 +356,34 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "GenerarExel",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NjU0NGI4YjAxNzdjNzg2MjhiNjAiLCJpYXQiOjE3NDExMjc0OTksImV4cCI6MTc0MTEzMTA5OX0._U737RoAYefdsKXjOo6ueIYhb1FesoAbh5idpcWDxfo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3006/COPEREX/v1/compania/generate-report",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"COPEREX",
+								"v1",
+								"compania",
+								"generate-report"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

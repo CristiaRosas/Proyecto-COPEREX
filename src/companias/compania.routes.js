@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { validarJWT} from "../middlewares/validar-jwt.js";
 import { tieneRole } from "../middlewares/validar-roles.js";
-import { register, getCompanias, viewCompanyById, updateCompany} from './compania.controller.js';
+import { register, getCompanias, viewCompanyById, updateCompany, generateCompanyReport} from './compania.controller.js';
 import { registerValidator } from "../middlewares/validator.js";
 
 const router = Router();
@@ -31,6 +31,12 @@ router.put(
     validarJWT,
     tieneRole("ADMIN_ROLE"),
     updateCompany
-)
+);
+
+router.get('/generate-report',
+    validarJWT,
+    tieneRole("ADMIN_ROLE"),
+    generateCompanyReport
+);
 
 export default router;
