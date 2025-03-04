@@ -16,7 +16,7 @@ const CompaniaSchema = Schema(
             type: Number, 
             required: [true, 'Se necesita saber cuanto tiempo lleva en la industria!'],
         },
-        categoria: { // Corregido el nombre del campo
+        categoria: { 
             type: String,
             required: [true, 'Se necesita la categoría de la empresa!'],
             minLength: 8,

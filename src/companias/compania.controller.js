@@ -24,42 +24,35 @@ export const register = async (req, res) => {
         return res.status(500).send({
             success: false,
             message: 'Hubo un error al registrar compania',
-            error: error.message, // Incluir el mensaje de error para depuración
+            error: error.message, 
         });
     }
 };
 
 export const getCompanias = async (req, res) => {
     try {
-        // Obtener los parámetros de consulta (query params)
-        const { categoria, anios, ordenar, ordenarPor } = req.query; // Definir parámetros de consulta
+        const { categoria, ordenar, ordenarPor } = req.query; 
 
-        // Construir el filtro dinámicamente
-        let filter = { status: true }; // Filtrar solo las empresas activas
+        let filter = { status: true }; 
 
         if (categoria) {
-            filter.categoria = categoria; // Filtrar por categoría
+            filter.categoria = categoria; 
         }
 
-        if (anios) {
-            // Filtrar por años de trayectoria, se asume que 'anios' es el campo en la base de datos
-            filter.anios = { $gte: parseInt(anios) }; // Empresas con más de 'anios' años de trayectoria
-        }
-
-        // Construir el ordenamiento dinámicamente
         let sort = {};
 
-        if (ordenar === "asc") {
-            sort.anios = 1; // Ordenar por años de menor a mayor
-        } else if (ordenar === "desc") {
-            sort.anios = -1; // Ordenar por años de mayor a menor
-        } else if (ordenar === "A-Z") {
-            sort.name = 1; // Ordenar alfabéticamente de A-Z
+        if (ordenarPor === "año") {
+            sort.año = ordenar === "asc" ? -1 : 1;
+        } else if (ordenarPor === "año") {
+            sort.año = ordenar === "desc" ? 1 : -1;
+        }
+        
+        if (ordenar === "A-Z") {
+            sort.name = 1; 
         } else if (ordenar === "Z-A") {
-            sort.name = -1; // Ordenar alfabéticamente de Z-A
+            sort.name = -1; 
         }
 
-        // Obtener las compañías con el filtro y ordenamiento
         const companias = await Compania.find(filter).sort(sort);
 
         return res.status(200).json({

@@ -36,14 +36,14 @@
   },
   "name": "Intelaf",
   "impacto": "medio",
-  "año": 9,
+  "año": 12,
   "categoria": "Cosas de tecnologia",
   "status": true,
   "createdAt": {
     "$date": "2025-03-03T22:35:40.634Z"
   },
   "updatedAt": {
-    "$date": "2025-03-03T22:35:40.634Z"
+    "$date": "2025-03-04T22:55:40.185Z"
   }
 },
 {
@@ -60,5 +60,37 @@
   },
   "updatedAt": {
     "$date": "2025-03-03T22:37:49.783Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c78304e188cdfe9693a6a6"
+  },
+  "name": "Incomex",
+  "impacto": "alto",
+  "año": 45,
+  "categoria": "Cosas de tecnologia",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-04T22:47:32.340Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-04T22:47:32.340Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c783abe188cdfe9693a6ab"
+  },
+  "name": "Banco nexa",
+  "impacto": "bajo",
+  "año": 35,
+  "categoria": "Bancarios",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-04T22:50:19.031Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-04T22:50:19.031Z"
   }
 }]

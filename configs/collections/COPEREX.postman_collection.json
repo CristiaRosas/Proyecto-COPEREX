@@ -16,11 +16,18 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"var data = JSON.parse(responseBody);\r",
-									"postman.setGlobalVariable(\"token\".data.token)"
+									"\r",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"packages": {},
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -75,7 +82,7 @@
 						"header": [
 							{
 								"key": "x-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MzN2Y4MDExZDc4N2I5ZWFhZWZmYTIiLCJpYXQiOjE3NDEwNTE2NTEsImV4cCI6MTc0MTA1NTI1MX0.xaCNe1IxFKSs5hK8DRI_50xY_4aIuZceyupKGOrZiiM",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NjU0NGI4YjAxNzdjNzg2MjhiNjAiLCJpYXQiOjE3NDExMjc0OTksImV4cCI6MTc0MTEzMTA5OX0._U737RoAYefdsKXjOo6ueIYhb1FesoAbh5idpcWDxfo",
 								"type": "text"
 							}
 						],
@@ -109,13 +116,13 @@
 						"header": [
 							{
 								"key": "x-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2MGVmNjAzZmFlYjQ3OGQxOGNlYmEiLCJpYXQiOjE3NDEwMzMzMjAsImV4cCI6MTc0MTAzNjkyMH0.z-O4ph0Kc68KJwJgrbVeM0swHApCFkpVOci4Lt5iQgQ",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NjU0NGI4YjAxNzdjNzg2MjhiNjAiLCJpYXQiOjE3NDExMjc0OTksImV4cCI6MTc0MTEzMTA5OX0._U737RoAYefdsKXjOo6ueIYhb1FesoAbh5idpcWDxfo",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"Helados sarita\",\r\n    \"impacto\": \"medio\",\r\n    \"año\": \"2009\",\r\n    \"categoria\": \"Alimentos\"\r\n}",
+							"raw": "{\r\n    \"name\" : \"Banco nexa\",\r\n    \"impacto\": \"bajo\",\r\n    \"año\": \"35\",\r\n    \"categoria\": \"Bancarios\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -146,7 +153,7 @@
 						"header": [
 							{
 								"key": "x-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MzN2Y4MDExZDc4N2I5ZWFhZWZmYTIiLCJpYXQiOjE3NDEwNTE2NTEsImV4cCI6MTc0MTA1NTI1MX0.xaCNe1IxFKSs5hK8DRI_50xY_4aIuZceyupKGOrZiiM",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NjU0NGI4YjAxNzdjNzg2MjhiNjAiLCJpYXQiOjE3NDExMjc0OTksImV4cCI6MTc0MTEzMTA5OX0._U737RoAYefdsKXjOo6ueIYhb1FesoAbh5idpcWDxfo",
 								"type": "text"
 							}
 						],
@@ -175,7 +182,7 @@
 						"header": [
 							{
 								"key": "x-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MzN2Y4MDExZDc4N2I5ZWFhZWZmYTIiLCJpYXQiOjE3NDEwNTE2NTEsImV4cCI6MTc0MTA1NTI1MX0.xaCNe1IxFKSs5hK8DRI_50xY_4aIuZceyupKGOrZiiM",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NjU0NGI4YjAxNzdjNzg2MjhiNjAiLCJpYXQiOjE3NDExMjc0OTksImV4cCI6MTc0MTEzMTA5OX0._U737RoAYefdsKXjOo6ueIYhb1FesoAbh5idpcWDxfo",
 								"type": "text"
 							}
 						],
@@ -209,12 +216,12 @@
 						"header": [
 							{
 								"key": "x-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MzN2Y4MDExZDc4N2I5ZWFhZWZmYTIiLCJpYXQiOjE3NDEwNTI0MTksImV4cCI6MTc0MTA1NjAxOX0.FA-Iw9G4-VI7DMddC_ppQCo71zAUJjUS4ws0MILAx8M",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NjU0NGI4YjAxNzdjNzg2MjhiNjAiLCJpYXQiOjE3NDExMjY3MzYsImV4cCI6MTc0MTEzMDMzNn0.SlD_zvUnzDBv6TVRUrzSi7vms9yyqgr8c8PpJimTfjM",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3006/COPEREX/v1/compania/getCompanias?ordenar=asc",
+							"raw": "http://localhost:3006/COPEREX/v1/compania/getCompanias?ordenarPor=año&ordenar=asc",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -227,6 +234,10 @@
 								"getCompanias"
 							],
 							"query": [
+								{
+									"key": "ordenarPor",
+									"value": "año"
+								},
 								{
 									"key": "ordenar",
 									"value": "asc"
@@ -243,12 +254,12 @@
 						"header": [
 							{
 								"key": "x-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MzN2Y4MDExZDc4N2I5ZWFhZWZmYTIiLCJpYXQiOjE3NDEwNTI0MTksImV4cCI6MTc0MTA1NjAxOX0.FA-Iw9G4-VI7DMddC_ppQCo71zAUJjUS4ws0MILAx8M",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NjU0NGI4YjAxNzdjNzg2MjhiNjAiLCJpYXQiOjE3NDExMjY3MzYsImV4cCI6MTc0MTEzMDMzNn0.SlD_zvUnzDBv6TVRUrzSi7vms9yyqgr8c8PpJimTfjM",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3006/COPEREX/v1/compania/getCompanias?ordenar=desc",
+							"raw": "http://localhost:3006/COPEREX/v1/compania/getCompanias?ordenarPor=año&ordenar=desc",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -261,6 +272,10 @@
 								"getCompanias"
 							],
 							"query": [
+								{
+									"key": "ordenarPor",
+									"value": "año"
+								},
 								{
 									"key": "ordenar",
 									"value": "desc"
@@ -277,12 +292,21 @@
 						"header": [
 							{
 								"key": "x-token",
-								"value": "",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NjU0NGI4YjAxNzdjNzg2MjhiNjAiLCJpYXQiOjE3NDExMjc0OTksImV4cCI6MTc0MTEzMTA5OX0._U737RoAYefdsKXjOo6ueIYhb1FesoAbh5idpcWDxfo",
 								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Intelaf\",\r\n    \"impacto\": \"medio\",\r\n    \"año\": 12,\r\n    \"categoria\": \"Cosas de tecnologia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://localhost:3006/COPEREX/v1/compania/updateCompany/",
+							"raw": "http://localhost:3006/COPEREX/v1/compania/updateCompany/67c62ebcb18abb0ae438ca62",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -293,7 +317,41 @@
 								"v1",
 								"compania",
 								"updateCompany",
-								""
+								"67c62ebcb18abb0ae438ca62"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ordenarPorCategoria",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NjU0NGI4YjAxNzdjNzg2MjhiNjAiLCJpYXQiOjE3NDExMjc0OTksImV4cCI6MTc0MTEzMTA5OX0._U737RoAYefdsKXjOo6ueIYhb1FesoAbh5idpcWDxfo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3006/COPEREX/v1/compania/getCompanias?categoria=Bancarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"COPEREX",
+								"v1",
+								"compania",
+								"getCompanias"
+							],
+							"query": [
+								{
+									"key": "categoria",
+									"value": "Bancarios"
+								}
 							]
 						}
 					},

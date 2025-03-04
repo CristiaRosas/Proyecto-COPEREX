@@ -94,7 +94,7 @@ const createUserAdmin = async (name, surname, username, email, password, role) =
         });
         
         await newUser.save();
-        console.log("User created successfully:", newUser);
+        console.log("Uusario Admin creado con exito!")
         return newUser;
     } catch (error) {
         console.error("Error creating user:", error);
