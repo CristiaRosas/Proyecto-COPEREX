@@ -61,11 +61,21 @@
 				{
 					"name": "OrdenarEmpresas A-Z",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
 								"key": "x-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2MTIzNzIwZDU4NGY1ODgzNzI4MTQiLCJpYXQiOjE3NDEwNDAwNTMsImV4cCI6MTc0MTA0MzY1M30.EQnQ1I2kG-V2nioEOGyBgv36ICvQpi-p3dUnfILm-08",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MzN2Y4MDExZDc4N2I5ZWFhZWZmYTIiLCJpYXQiOjE3NDEwNTE2NTEsImV4cCI6MTc0MTA1NTI1MX0.xaCNe1IxFKSs5hK8DRI_50xY_4aIuZceyupKGOrZiiM",
 								"type": "text"
 							}
 						],
@@ -133,7 +143,28 @@
 					"name": "mostrarPorId",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MzN2Y4MDExZDc4N2I5ZWFhZWZmYTIiLCJpYXQiOjE3NDEwNTE2NTEsImV4cCI6MTc0MTA1NTI1MX0.xaCNe1IxFKSs5hK8DRI_50xY_4aIuZceyupKGOrZiiM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3006/COPEREX/v1/compania/viewCompanyById/67c62f3db18abb0ae438ca65",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"COPEREX",
+								"v1",
+								"compania",
+								"viewCompanyById",
+								"67c62f3db18abb0ae438ca65"
+							]
+						}
 					},
 					"response": []
 				},
@@ -144,7 +175,7 @@
 						"header": [
 							{
 								"key": "x-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2MTIzNzIwZDU4NGY1ODgzNzI4MTQiLCJpYXQiOjE3NDEwNDAwNTMsImV4cCI6MTc0MTA0MzY1M30.EQnQ1I2kG-V2nioEOGyBgv36ICvQpi-p3dUnfILm-08",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MzN2Y4MDExZDc4N2I5ZWFhZWZmYTIiLCJpYXQiOjE3NDEwNTE2NTEsImV4cCI6MTc0MTA1NTI1MX0.xaCNe1IxFKSs5hK8DRI_50xY_4aIuZceyupKGOrZiiM",
 								"type": "text"
 							}
 						],
@@ -172,10 +203,36 @@
 					"response": []
 				},
 				{
-					"name": "OrdenarAñosMAyor",
+					"name": "OrdenarAñosMayor",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MzN2Y4MDExZDc4N2I5ZWFhZWZmYTIiLCJpYXQiOjE3NDEwNTI0MTksImV4cCI6MTc0MTA1NjAxOX0.FA-Iw9G4-VI7DMddC_ppQCo71zAUJjUS4ws0MILAx8M",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3006/COPEREX/v1/compania/getCompanias?ordenar=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"COPEREX",
+								"v1",
+								"compania",
+								"getCompanias"
+							],
+							"query": [
+								{
+									"key": "ordenar",
+									"value": "asc"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -183,7 +240,62 @@
 					"name": "OrdenarAñosMenor",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MzN2Y4MDExZDc4N2I5ZWFhZWZmYTIiLCJpYXQiOjE3NDEwNTI0MTksImV4cCI6MTc0MTA1NjAxOX0.FA-Iw9G4-VI7DMddC_ppQCo71zAUJjUS4ws0MILAx8M",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3006/COPEREX/v1/compania/getCompanias?ordenar=desc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"COPEREX",
+								"v1",
+								"compania",
+								"getCompanias"
+							],
+							"query": [
+								{
+									"key": "ordenar",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarCompania",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3006/COPEREX/v1/compania/updateCompany/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"COPEREX",
+								"v1",
+								"compania",
+								"updateCompany",
+								""
+							]
+						}
 					},
 					"response": []
 				}
