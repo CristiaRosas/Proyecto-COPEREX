@@ -8,14 +8,14 @@ export const register = async (req, res) => {
         if (existingCompania) {
             return res.status(400).send({
                 success: false,
-                message: 'Company with this name already exists.', // Corregido mensaje
+                message: 'Ya existe una empresa con este nombre', 
             });
         }
 
-        let newCompania = new Compania(data); // Usar un nombre diferente para la instancia
+        let newCompania = new Compania(data); 
         await newCompania.save();
 
-        return res.status(201).send({ // Cambiado a 201 para indicar creación
+        return res.status(201).send({ 
             success: true,
             message: `${newCompania.name}, Se registro con exito!! `,
         });
@@ -23,7 +23,7 @@ export const register = async (req, res) => {
         console.error(error);
         return res.status(500).send({
             success: false,
-            message: 'Error registering',
+            message: 'Hubo un error al registrar compania',
             error: error.message, // Incluir el mensaje de error para depuración
         });
     }
@@ -43,22 +43,20 @@ export const getCompanias = async (req, res) => {
 
         if (anios) {
             // Filtrar por años de trayectoria, se asume que 'anios' es el campo en la base de datos
-            filter.anios = { $gte: anios }; // Empresas con más de 'anios' años de trayectoria
+            filter.anios = { $gte: parseInt(anios) }; // Empresas con más de 'anios' años de trayectoria
         }
 
         // Construir el ordenamiento dinámicamente
         let sort = {};
-        if (ordenar) {
-            if (ordenar === "A-Z") {
-                sort.name = 1; // Ordenar de A-Z
-            } else if (ordenar === "Z-A") {
-                sort.name = -1; // Ordenar de Z-A
-            } else if (ordenar === "mayor") {
-                sort.createdAt = ordenarPor === "asc" ? 1 : -1; // Ordenar por fecha de creación
-            } else if (ordenar === "menor") {
-                sort.createdAt = ordenarPor === "desc" ? 1 : -1; // Ordenar por fecha de creación
-            } 
-            
+
+        if (ordenar === "asc") {
+            sort.anios = 1; // Ordenar por años de menor a mayor
+        } else if (ordenar === "desc") {
+            sort.anios = -1; // Ordenar por años de mayor a menor
+        } else if (ordenar === "A-Z") {
+            sort.name = 1; // Ordenar alfabéticamente de A-Z
+        } else if (ordenar === "Z-A") {
+            sort.name = -1; // Ordenar alfabéticamente de Z-A
         }
 
         // Obtener las compañías con el filtro y ordenamiento
@@ -69,7 +67,7 @@ export const getCompanias = async (req, res) => {
             companias,
         });
     } catch (error) {
-        console.error("Error al obtener compañías:", error);
+        console.error("Hubo un error al obtener compania", error);
         return res.status(500).json({
             success: false,
             message: "Error interno del servidor al obtener las compañías.",
@@ -88,7 +86,7 @@ export const viewCompanyById = async (req, res) => {
         if(!compania){
             return res.status(404).json({
                 success: false,
-                msg: 'Usuario not found'
+                msg: 'No se encontro usuario en la base de datos'
             })
         }
 
@@ -105,3 +103,39 @@ export const viewCompanyById = async (req, res) => {
         })
     }
 }
+
+export const updateCompany = async (req, res) => {
+    try {
+        const { id } = req.params; 
+        const data = req.body; 
+
+        
+        const compania = await Compania.findById(id);
+
+        if (!compania) {
+            return res.status(404).json({
+                success: false,
+                message: "No se encontró la empresa en la base de datos",
+            });
+        }
+
+        
+        const updatedCompania = await Compania.findByIdAndUpdate(id, data, {
+            new: true, 
+            runValidators: true, 
+        });
+
+        return res.status(200).json({
+            success: true,
+            message: "Empresa actualizada con exito!",
+            compania: updatedCompania,
+        });
+    } catch (error) {
+        console.error("Error al actualizar la empresa:", error);
+        return res.status(500).json({
+            success: false,
+            message: "Error interno del servidor al actualizar la empresa.",
+            error: error.message,
+        });
+    }
+};
