@@ -93,4 +93,20 @@
   "updatedAt": {
     "$date": "2025-03-04T22:50:19.031Z"
   }
+},
+{
+  "_id": {
+    "$oid": "67c7a75e59a329b64d8ea649"
+  },
+  "name": "Multiservicios STS",
+  "impacto": "alto",
+  "año": 20,
+  "categoria": "Seguridad",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-05T01:22:38.371Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-05T01:22:38.371Z"
+  }
 }]

@@ -156,7 +156,7 @@ export const generateCompanyReport = async (req, res) => {
             'ID': compania._id,
             'Nombre': compania.name,
             'Categoria': compania.categoria || 'No definida',
-            'Año de registro': compania.año || 'No disponible',
+            'Años en la industria': compania.año || 'No disponible',
             'Estado': compania.status ? 'Activo' : 'Inactivo',
         }));
 
@@ -165,17 +165,13 @@ export const generateCompanyReport = async (req, res) => {
         XLSX.utils.book_append_sheet(wb, ws, "Reporte de Empresas");
 
         const fileName = 'reporte_empresas.xlsx';
-
-        // Aquí usamos __dirname con import.meta.url
         const folderPath = path.join(__dirname, '..', 'excel-Report');
         const filePath = path.join(folderPath, fileName);
 
-        // Verifica si la carpeta existe, y si no, la crea
         if (!fs.existsSync(folderPath)) {
             fs.mkdirSync(folderPath, { recursive: true });
         }
 
-        // Guarda el archivo Excel en la ruta indicada
         XLSX.writeFile(wb, filePath);
 
         return res.status(200).json({
